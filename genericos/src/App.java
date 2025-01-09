@@ -2,6 +2,10 @@
 //package com.jve;
 import java.util.Random;
 
+import com.jve.dto.AlumnoDTO;
+import com.jve.dto.AlumnoToDTOConverter;
+import com.jve.modelo.Alumno;
+import com.jve.modelo.Converter;
 import com.jve.modelo.Lista;
 import com.jve.modelo.Producto;
 
@@ -23,6 +27,8 @@ public class App {
 
         System.out.println(lista);*/
 
+        System.out.println("------------------------------------------");
+
         Lista<Producto> listaDeProductos = new Lista<>();
 
         Producto p1 = new Producto("Laptop", 799.99);
@@ -39,5 +45,15 @@ public class App {
         System.out.println(encontrado);
 
         System.out.println(listaDeProductos);
+
+        System.out.println("------------------------------------------");
+
+        Alumno alumno = new Alumno("Martín", "Calderón"); //Creo el objeto alumno
+
+        Converter<Alumno, AlumnoDTO> alumnoConverter = new AlumnoToDTOConverter(); //Creo el conversor del alumno
+
+        AlumnoDTO alumnoDTO = alumnoConverter.convert(alumno); //Convertimos el alumno en un alumnoDTO para obtener el nombrecompleto
+
+        System.out.println("Nombre Completo: " + alumnoDTO.getNombreCompleto()); //Mostramos el nombrecompleto por consola
     }
 }
