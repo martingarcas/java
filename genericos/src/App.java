@@ -6,6 +6,7 @@ import com.jve.dto.AlumnoDTO;
 import com.jve.dto.AlumnoToDTOConverter;
 import com.jve.modelo.Alumno;
 import com.jve.modelo.Converter;
+import com.jve.modelo.Convertidor;
 import com.jve.modelo.Lista;
 import com.jve.modelo.Producto;
 
@@ -48,12 +49,43 @@ public class App {
 
         System.out.println("------------------------------------------");
 
-        Alumno alumno = new Alumno("Martín", "Calderón"); //Creo el objeto alumno
+        /*Alumno alumno = new Alumno("Martín", "Calderón"); //Creo el objeto alumno
 
         Converter<Alumno, AlumnoDTO> alumnoConverter = new AlumnoToDTOConverter(); //Creo el conversor del alumno
 
         AlumnoDTO alumnoDTO = alumnoConverter.convert(alumno); //Convertimos el alumno en un alumnoDTO para obtener el nombrecompleto
 
-        System.out.println("Nombre Completo: " + alumnoDTO.getNombreCompleto()); //Mostramos el nombrecompleto por consola
+        System.out.println("Nombre Completo: " + alumnoDTO.getNombreCompleto()); //Mostramos el nombrecompleto por consola*/
+
+        System.out.println("------------------------------------------");
+        // Crear una lista de alumnos
+        Lista<Alumno> listaDeAlumnos = new Lista<>();
+        listaDeAlumnos.agregar(new Alumno("Martín", "Calderón"));
+        listaDeAlumnos.agregar(new Alumno("Ana", "Gómez"));
+        listaDeAlumnos.agregar(new Alumno("Carlos", "Pérez"));
+
+        //Método 1
+        // Crear el conversor de Alumno a AlumnoDTO
+        /*AlumnoToDTOConverter alumnoConverter = new AlumnoToDTOConverter();
+
+        // Convertir la lista de alumnos a lista de AlumnoDTO
+        Lista<AlumnoDTO> listaDeAlumnosDTO = Convertidor.convertirLista(listaDeAlumnos, alumnoConverter);
+
+        // Imprimir la lista de AlumnoDTOs
+        for (AlumnoDTO alumnoDTO : listaDeAlumnosDTO) {
+            System.out.println(alumnoDTO.getNombreCompleto());
+        }*/
+
+        //Método 2
+        // Crear el conversor de Alumno a AlumnoDTO
+        AlumnoToDTOConverter alumnoConverter = new AlumnoToDTOConverter();
+
+        // Convertir la lista de alumnos a lista de AlumnoDTO usando el nuevo método
+        Lista<AlumnoDTO> listaDeAlumnosDTO = alumnoConverter.convertirLista(listaDeAlumnos);
+
+        // Imprimir la lista de AlumnoDTOs
+        for (AlumnoDTO alumnoDTO : listaDeAlumnosDTO) {
+            System.out.println(alumnoDTO.getNombreCompleto());
+        }
     }
 }

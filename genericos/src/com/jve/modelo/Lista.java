@@ -1,17 +1,17 @@
 package com.jve.modelo;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class Lista<T extends Comparable<T> >{
+public class Lista<T extends Object & Comparable<T>> implements Iterable<T> {
 
 	private T[] elementos;
 	private int tamaño;
 	private static final int CAPACIDAD_INICIAL = 10;
+	private int i;
 
 	public Lista() {
 
-		// Crear el arreglo de tipo T[] de manera segura
-        // Aquí usamos un "cast" seguro para el tipo T en lugar de Object
         elementos = (T[]) new Comparable[CAPACIDAD_INICIAL];
 		tamaño = 0;
 	}
@@ -81,7 +81,26 @@ public class Lista<T extends Comparable<T> >{
 		return sb.toString();
 	}
 
+	@Override
+	public Iterator<T> iterator() {
+
+		i = 0;
+		Iterator<T> it = new Iterator<T>() {
+
+			@Override
+			public boolean hasNext() {
+				return i != tamaño;
+			}
+
+			@Override
+			public T next() {
+				return elementos[i++];
+			}
+		};
+		return it;
+	}
+
 }
 
 
-//iterable, clear, sort?¿? comparable, java interfaces
+//iterable, clear, sort?¿? comparable, java interfaces, hacer listadto

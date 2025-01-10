@@ -1,6 +1,6 @@
 package com.jve.dto;
 
-public class AlumnoDTO {
+public class AlumnoDTO implements Comparable<AlumnoDTO>{
 
     private String nombreCompleto;
 
@@ -14,6 +14,11 @@ public class AlumnoDTO {
 
     public void setNombreCompleto(String nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
+    }
+
+    @Override
+    public int compareTo(AlumnoDTO o) {
+        return this.nombreCompleto.compareTo(o.nombreCompleto);
     }
 
 }
