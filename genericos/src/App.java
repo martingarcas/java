@@ -8,6 +8,7 @@ import com.jve.modelo.Alumno;
 import com.jve.modelo.Converter;
 import com.jve.modelo.Convertidor;
 import com.jve.modelo.Lista;
+import com.jve.modelo.Pila;
 import com.jve.modelo.Producto;
 
 public class App {
@@ -87,5 +88,47 @@ public class App {
         for (AlumnoDTO alumnoDTO : listaDeAlumnosDTO) {
             System.out.println(alumnoDTO.getNombreCompleto());
         }
+
+        System.out.println("------------------------------------------");
+
+        // Crear una pila de tipo Alumno
+        Pila<Alumno> pilaDeAlumnos = new Pila<>();
+
+        System.out.println("Tamaño de la pila antes de agregar alumnos: " + pilaDeAlumnos.size());
+
+        Alumno alumnoPila1 = new Alumno("Daniel", "García");
+        Alumno alumnoPila2 = new Alumno("Fernando", "Gómez");
+        Alumno alumnoPila3 = new Alumno("Luis", "Martínez");
+        
+        pilaDeAlumnos.push(alumnoPila1);
+        pilaDeAlumnos.push(alumnoPila2);
+        pilaDeAlumnos.push(alumnoPila3);
+
+        // Mostrar el tamaño de la pila
+        System.out.println("Tamaño de la pila después de agregar alumnos: " + pilaDeAlumnos.size());
+
+        // Ver el último alumno agregado (sin quitarlo)
+        System.out.println("Último alumno (peep): " + pilaDeAlumnos.peep());
+
+        // Eliminar el último alumno (pop)
+        System.out.println("Eliminando último alumno...");
+        Alumno eliminado = pilaDeAlumnos.pop();
+        System.out.println("Alumno eliminado: " + eliminado);
+
+        // Ver el tamaño después de un pop
+        System.out.println("Tamaño de la pila después de eliminar un alumno: " + pilaDeAlumnos.size());
+
+        // Comprobar si la pila está vacía
+        System.out.println("¿Está la pila vacía? " + pilaDeAlumnos.empty());
+
+        // Limpiar la pila (vaciarla)
+        System.out.println("Limpiando la pila...");
+        pilaDeAlumnos.clear();
+
+        // Comprobar el tamaño después de limpiar
+        System.out.println("Tamaño de la pila después de limpiarla: " + pilaDeAlumnos.size());
+
+        // Comprobar si la pila está vacía después de limpiar
+        System.out.println("¿Está la pila vacía después de limpiarla? " + pilaDeAlumnos.empty());
     }
 }

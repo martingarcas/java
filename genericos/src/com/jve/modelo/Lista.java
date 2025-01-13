@@ -101,6 +101,3 @@ public class Lista<T extends Object & Comparable<T>> implements Iterable<T> {
 	}
 
 }
-
-
-//iterable, clear, sort?¿? comparable, java interfaces, hacer listadto
