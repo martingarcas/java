@@ -210,5 +210,14 @@ public class App {
         //Ejemplo de uso o de algo: List<String> lista = Arrays.asList(new Alumno());
         //lista.stream().map(Alumno::getEdad()).forEach(System.out::println);
         //https://oregoom.com/java/comparator/
+
+        // Nuevo ejercicio
+        // Lista, crear una clase Node que tiene T element, tiene Node next, y tiene Node previous,
+        // Tengo un node donde guardo algo y tiene un puntero a otro donde guardo algo...
+        // En la lista los metodos de agregar y quitar, crean un new node y actualizan previous y next
+        // En la lista pones un puntero que es el primer node(node primero)
+        // Si el node primero es null, la lista está vacía.
+        // Sólo puedo agregar al final
+        // Node ultimo
     }
 }

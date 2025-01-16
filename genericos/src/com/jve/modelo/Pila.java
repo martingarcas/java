@@ -2,7 +2,7 @@ package com.jve.modelo;
 
 import java.util.Arrays;
 
-public class Pila<T extends Object & Comparable<T>> {
+public class Pila<T extends Comparable<T>> {
 
     private Lista<T> elementos;
 
@@ -45,7 +45,7 @@ public class Pila<T extends Object & Comparable<T>> {
         return elementos.obtener(elementos.tamaño() - 1);
     }
 
-    // Método para obtener el tamaño de la pila
+    // Método para obtener el tamaño de la pila - Devolver copia o un inmodificable ya que no se debe pasar el original en el peep
     public int size() {
         return elementos.tamaño();
     }
